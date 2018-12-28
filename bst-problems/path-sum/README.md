@@ -2,6 +2,7 @@
 
 # Solutions
 1. [JS Solution](/js-solution)
+2. [RS Solution](/rs-solution)
 
 ## Problem Description
 
