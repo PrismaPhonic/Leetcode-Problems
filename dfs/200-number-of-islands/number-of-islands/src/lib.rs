@@ -5,9 +5,11 @@ type Grid = Vec<Vec<char>>;
 type Point = (usize, usize);
 
 pub fn num_islands(grid: Grid) -> i32 {
-   let height = grid.len();
+    let height = grid.len();
 
-    if height == 0 { return 0 };
+    if height == 0 {
+        return 0;
+    };
 
     let width = grid[0].len();
 
@@ -21,26 +23,26 @@ pub fn num_islands(grid: Grid) -> i32 {
             let top = stack.pop().unwrap();
             let (x, y) = top;
 
-            if x > 0 && grid[y][x-1] == '1' {
-                let left = (x-1, y);
+            if x > 0 && grid[y][x - 1] == '1' {
+                let left = (x - 1, y);
                 if seen.insert(left) {
                     stack.push(left);
                 }
             }
-            if x < width-1 && grid[y][x+1] == '1' {
+            if x < width - 1 && grid[y][x + 1] == '1' {
                 let right = (x + 1, y);
                 if seen.insert(right) {
                     stack.push(right);
                 }
             }
-            if y > 0 && grid[y-1][x] == '1' {
-                let up = (x, y-1);
+            if y > 0 && grid[y - 1][x] == '1' {
+                let up = (x, y - 1);
                 if seen.insert(up) {
                     stack.push(up);
                 }
             }
-            if y < height-1 && grid[y+1][x] == '1' {
-                let down = (x, y+1);
+            if y < height - 1 && grid[y + 1][x] == '1' {
+                let down = (x, y + 1);
                 if seen.insert(down) {
                     stack.push(down);
                 }
@@ -70,8 +72,7 @@ pub fn num_islands(grid: Grid) -> i32 {
     }
 
     count
-
-    }
+}
 
 #[cfg(test)]
 mod tests {
